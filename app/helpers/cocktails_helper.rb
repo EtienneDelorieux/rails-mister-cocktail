@@ -8,6 +8,8 @@ module CocktailsHelper
       @stars = []
       cocktail.reviews.each { |review| @stars << review.stars }
       @stars.inject(&:+) / @stars.size
+    else
+      0
     end
   end
 end
