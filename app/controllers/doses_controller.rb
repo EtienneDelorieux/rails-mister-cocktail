@@ -13,7 +13,6 @@ class DosesController < ApplicationController
       redirect_to cocktail_path(@cocktail)
     else
       render 'cocktails/show'
-      # ATTENTION A LA MOUSSE
     end
   end
 

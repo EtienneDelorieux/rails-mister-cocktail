@@ -1,5 +1,5 @@
 class CocktailsController < ApplicationController
-  before_action :set_cocktail, only: [:show]
+  before_action :set_cocktail, only: [:show, :average_rating]
 
   def new
     @cocktail = Cocktail.new
@@ -21,7 +21,7 @@ class CocktailsController < ApplicationController
 
   def show
     @dose = Dose.new
-    @image_name = @cocktail.name.downcase + ".jpg"
+    @review = Review.new
   end
 
   private

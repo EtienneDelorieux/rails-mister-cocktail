@@ -1,4 +1,9 @@
 <%= link_to(cocktail_path(cocktail), class: "cocktail__item", style: "background-image: url(#{cocktail_image_path_for(cocktail)})") do %>
   <h2 class="cocktail__name"><%= cocktail.name %></h2>
+  <div class="cocktail__average">
+    <% average(cocktail).times do %>
+      <%= icon('fas star--full', 'star') %>
+    <% end %>
+  </div>
   <span class="cocktail__filter"></span>
 <% end %>

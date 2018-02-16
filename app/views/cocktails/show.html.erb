@@ -31,26 +31,34 @@
 
 <div class="row cocktail__reviews">
   <div class="container">
-    <h2 class="col-lg-12">Reviews</h2>
 
-    <div class="review col-lg-3">
-      <div class="review__stars">5 étoiles</div>
-      <p class="eview__content">Top</p>
+    <div class="col-lg-12 reviews__list">
+      <h2>Reviews</h2>
+
+      <div class="row">
+        <% @cocktail.reviews.each do |review| %>
+        <div class="review col-lg-3">
+          <div class="review__stars">
+            <% review.stars.times do %>
+              <%= icon('fas star--full', 'star') %>
+            <% end %>
+            <% (5 - review.stars).times do %>
+              <%= icon('fas star--empty', 'star') %>
+            <% end %>
+          </div>
+          <p class="eview__content"><%= review.content %></p>
+        </div>
+        <% end %>
+      </div>
     </div>
 
-    <div class="review col-lg-3">
-      <div class="review__stars">5 étoiles</div>
-      <p class="eview__content">Top</p>
-    </div>
-
-    <div class="review col-lg-3">
-      <div class="review__stars">5 étoiles</div>
-      <p class="eview__content">Top</p>
-    </div>
-
-    <div class="review col-lg-3">
-      <div class="review__stars">5 étoiles</div>
-      <p class="eview__content">Top</p>
+    <div class="col-lg-12 reviews__add">
+      <h2>Add a review</h2>
+      <%= simple_form_for [@cocktail, @review] do |f| %>
+        <%= f.input :content %>
+        <%= f.input :stars, collection: [0, 1, 2, 3, 4, 5], include_blank: false %>
+        <%= f.submit "Add a review", class: "btn btn--primary" %>
+      <% end %>
     </div>
 
   </div>

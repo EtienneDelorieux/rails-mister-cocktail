@@ -28,3 +28,24 @@
 .ingredients__item {
   margin-bottom: 10px;
 }
+
+.reviews__list {
+  margin-bottom: 50px;
+}
+
+
+.review {
+  text-align: center;
+}
+
+.review__stars {
+  margin-bottom: 15px;
+
+  .fa-star {
+    color: $primary-color;
+  }
+
+  .fa-star.star--empty {
+    opacity: 0.25;
+  }
+}

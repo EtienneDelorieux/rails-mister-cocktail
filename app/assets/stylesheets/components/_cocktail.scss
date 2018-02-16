@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 250px 0 50px;
+  height: 350px;
   background-size: cover;
   background-position: center center;
   border-radius: $border-radius * 3;
@@ -12,15 +12,20 @@
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 40px -5px rgba(0, 0, 0, 0.5);
-  }
 
-  &:hover .cocktail__filter {
-    opacity: 0.25;
-    transition: all 0.2s;
-  }
+    .cocktail__filter {
+      transition: all 0.2s;
+      opacity: 0.75;
+    }
 
-  &:hover h2.cocktail__name:after {
-    transform: scaleX(1);
+    h2.cocktail__name:after {
+      transform: scaleX(1);
+    }
+
+    .cocktail__average {
+      transform: translateY(-5px);
+      opacity: 1;
+    }
   }
 }
 
@@ -40,16 +45,23 @@ h2.cocktail__name {
   color: #fff;
   z-index: 10;
   position: relative;
+  transition: all 0.2s;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  bottom: 60px;
+}
 
-  &:after {
-    content: "";
-    bottom: -20px;
-    height: 2px;
-    background-color: #fff;
-    width: 50px;
-    left: calc(50% - 25px);
-    position: absolute;
-    transition: all 0.2s;
-    transform: scaleX(0);
+.cocktail__average {
+  z-index: 9;
+  position: absolute;
+  bottom: 20px;
+  opacity: 0;
+  transition: all 0.2s;
+
+  .fa-star {
+    color: #fff;
+    font-size: 0.8rem;
   }
 }
