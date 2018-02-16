@@ -1,5 +1,5 @@
 module CocktailsHelper
   def cocktail_image_path_for(cocktail)
-    image_path(cocktail.name.downcase.gsub(/ /, "-") + '.jpg')
+    cl_image_path cocktail.photo
   end
 end

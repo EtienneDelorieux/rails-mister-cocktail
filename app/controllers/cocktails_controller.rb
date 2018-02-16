@@ -6,8 +6,13 @@ class CocktailsController < ApplicationController
   end
 
   def create
-    @restaurant = Cocktail.create!(cocktail_params)
-    redirect_to root_path
+    @cocktail = Cocktail.new(cocktail_params)
+
+    if @cocktail.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def index
@@ -26,6 +31,6 @@ class CocktailsController < ApplicationController
   end
 
   def cocktail_params
-    params.require(:cocktail).permit(:name)
+    params.require(:cocktail).permit(:name, :photo)
   end
 end
