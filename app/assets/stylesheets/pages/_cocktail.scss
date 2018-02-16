@@ -1,63 +1,24 @@
+.cocktail__banner {
+  display: block;
+  background-position: center center;
+  background-size: cover;
+  padding: 250px 0;
+  text-align: center;
+  color: #fff;
+
+  h1 {
+    margin: 0;
+  }
+}
+
 .cocktail__list {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
-.cocktail__item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 250px 0 50px;
-  background-size: cover;
-  background-position: center center;
-  border-radius: $border-radius * 3;
-  transition: all 0.3s;
-  position: relative;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px -5px rgba(0, 0, 0, 0.5);
-  }
-
-  &:hover .cocktail__filter {
-    opacity: 0.5;
-    transition: all 0.2s;
-  }
-
-  &:hover h2.cocktail__name:after {
-    transform: scaleX(1);
-  }
-}
-
-.cocktail__filter {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
-  transition: all 0.2s;
-  border-radius: $border-radius * 3;
-}
-
-h2.cocktail__name {
-  margin-bottom: 0;
-  color: #fff;
-  z-index: 10;
-  position: relative;
-
-  &:after {
-    content: "";
-    bottom: -20px;
-    height: 2px;
-    background-color: #fff;
-    width: 50px;
-    left: calc(50% - 25px);
-    position: absolute;
-    transition: all 0.2s;
-    transform: scaleX(0);
-  }
+.cocktail__ingredients {
+  background-color: #fff;
 }
 
 .ingredients__list {

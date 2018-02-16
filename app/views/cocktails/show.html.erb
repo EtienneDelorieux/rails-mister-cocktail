@@ -1,24 +1,57 @@
-<h1><%= @cocktail.name %></h1>
+<div class="cocktail__banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<%= cocktail_image_path_for(@cocktail) %>)">
+  <h1><%= @cocktail.name %></h1>
+</div>
 
-<div class="row">
+<div class="row cocktail__ingredients">
+  <div class="container">
 
-  <div class="col-lg-6 ingredients__list">
-    <h2>Ingredients</h2>
-    <% @cocktail.doses.each do |dose| %>
-      <p class="ingredients__item">
-        <strong><%= dose.ingredient.name %></strong> -
-        <%= dose.description %>
-        (<%= link_to "Delete", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } %>)
-      </p>
-    <% end %>
+    <div class="col-lg-6 ingredients__list">
+      <h2>Ingredients</h2>
+      <% @cocktail.doses.each do |dose| %>
+        <p class="ingredients__item">
+          <strong><%= dose.ingredient.name %></strong>
+          -
+          <%= dose.description %>
+          (<%= link_to "Delete", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } %>)
+        </p>
+      <% end %>
+    </div>
+
+    <div class="col-lg-6 ingredients__add">
+      <h2>Add an ingredient</h2>
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
+        <%= f.association :ingredient, include_blank: false %>
+        <%= f.input :description %>
+        <%= f.submit "Add this ingredient", class: "btn btn--primary" %>
+      <% end %>
+    </div>
+
   </div>
+</div>
 
-  <div class="col-lg-6 ingredients__add">
-    <h2>Add an ingredient</h2>
-    <%= simple_form_for [@cocktail, @dose] do |f| %>
-      <%= f.association :ingredient, include_blank: false %>
-      <%= f.input :description %>
-      <%= f.submit "Add this ingredient", class: "btn btn--primary" %>
-    <% end %>
+<div class="row cocktail__reviews">
+  <div class="container">
+    <h2 class="col-lg-12">Reviews</h2>
+
+    <div class="review col-lg-3">
+      <div class="review__stars">5 étoiles</div>
+      <p class="eview__content">Top</p>
+    </div>
+
+    <div class="review col-lg-3">
+      <div class="review__stars">5 étoiles</div>
+      <p class="eview__content">Top</p>
+    </div>
+
+    <div class="review col-lg-3">
+      <div class="review__stars">5 étoiles</div>
+      <p class="eview__content">Top</p>
+    </div>
+
+    <div class="review col-lg-3">
+      <div class="review__stars">5 étoiles</div>
+      <p class="eview__content">Top</p>
+    </div>
+
   </div>
 </div>
