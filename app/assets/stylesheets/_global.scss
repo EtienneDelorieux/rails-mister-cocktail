@@ -1,0 +1,45 @@
+*,
+html,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-size: 15px;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 80px;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 1.7rem;
+  margin-bottom: 25px;
+}
+
+a {
+  color: $primary-color;
+  transition: all 0.2s;
+
+  &:hover {
+    color: lighten($primary-color, 5%);
+    text-decoration: none;
+  }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 80px;
+}
+
+.container {
+  width: 80vw;
+}

@@ -1,0 +1,9 @@
+<h1>All you need is Cocktails</h1>
+
+<div class="row cocktail__list">
+  <% @cocktails.each do |cocktail| %>
+    <div class="col-md-3">
+      <%= render "cocktail", cocktail: cocktail %>
+    </div>
+  <% end %>
+</div>
