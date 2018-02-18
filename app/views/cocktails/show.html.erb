@@ -37,7 +37,7 @@
     <div class="col-lg-6 ingredients__add">
       <h2>Add an ingredient</h2>
       <%= simple_form_for [@cocktail, @dose] do |f| %>
-        <%= f.association :ingredient, include_blank: false %>
+        <%= f.association :ingredient, include_blank: false, collection: Ingredient.order(:name) %>
         <%= f.input :description %>
         <%= f.submit "Add ingredient", class: "btn btn--primary" %>
       <% end %>
