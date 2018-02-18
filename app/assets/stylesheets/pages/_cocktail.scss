@@ -2,14 +2,20 @@
   display: block;
   background-position: center center;
   background-size: cover;
-  padding: 150px 0;
   text-align: center;
   color: #fff;
   position: relative;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   h1 {
-    margin: 0 0 30px;
-    font-style: italic;
+    width: 100%;
+  }
+
+  p {
+    margin-top: 30px;
   }
 }
 

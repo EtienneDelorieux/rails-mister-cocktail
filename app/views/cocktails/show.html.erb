@@ -1,8 +1,10 @@
 <div class="cocktail__banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<%= cocktail_image_path_for(@cocktail) %>)">
-  <h1><%= @cocktail.name %></h1>
-  <% if @cocktail.description %>
-    <p class="cocktail__description"><%= @cocktail.description %></p>
-  <% end %>
+  <div class="container">
+    <h1><%= @cocktail.name %></h1>
+    <% if @cocktail.description %>
+      <p class="cocktail__description"><%= @cocktail.description %></p>
+    <% end %>
+  </div>
   <div class="cocktail__actions">
     <%= link_to(edit_cocktail_path(@cocktail), class: "btn btn--secondary") do %>
       <%= icon('fas', 'edit') %>Edit

@@ -22,7 +22,7 @@ h3 {
 
 h1 {
   font-size: 3rem;
-  margin-bottom: 80px;
+  font-style: italic;
 }
 
 h2 {
@@ -43,6 +43,17 @@ a {
 .container {
   padding: 50px 0;
   width: 80vw;
+}
+
+.home__banner {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), asset-url("home-background.jpg") center center no-repeat;
+  background-size: cover;
+  text-align: center;
+  color: #fff;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 footer {
