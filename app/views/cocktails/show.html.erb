@@ -1,5 +1,16 @@
 <div class="cocktail__banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<%= cocktail_image_path_for(@cocktail) %>)">
   <h1><%= @cocktail.name %></h1>
+  <% if @cocktail.description %>
+    <p class="cocktail__description"><%= @cocktail.description %></p>
+  <% end %>
+  <div class="cocktail__actions">
+    <%= link_to(edit_cocktail_path(@cocktail), class: "btn btn--secondary") do %>
+      <%= icon('fas', 'edit') %>Edit
+    <% end %>
+    <%= link_to(cocktail_path(@cocktail), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn--secondary") do %>
+      <%= icon('fas', 'trash') %>Delete
+    <% end %>
+  </div>
 </div>
 
 <div class="row cocktail__ingredients">
@@ -12,7 +23,11 @@
           <strong><%= dose.ingredient.name %></strong>
           -
           <%= dose.description %>
-          (<%= link_to "Delete", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } %>)
+          (
+            <%= link_to(dose_path(dose), method: :delete, data: { confirm: "Are you sure?" }) do %>
+              <%= icon('fas', 'trash') %>
+            <% end %>
+          )
         </p>
       <% end %>
     </div>
@@ -22,7 +37,7 @@
       <%= simple_form_for [@cocktail, @dose] do |f| %>
         <%= f.association :ingredient, include_blank: false %>
         <%= f.input :description %>
-        <%= f.submit "Add this ingredient", class: "btn btn--primary" %>
+        <%= f.submit "Add ingredient", class: "btn btn--primary" %>
       <% end %>
     </div>
 
@@ -47,6 +62,9 @@
             <% end %>
           </div>
           <p class="eview__content"><%= review.content %></p>
+          <%= link_to(review_path(review), method: :delete, data: { confirm: "Are you sure?" }, class: "review__delete") do %>
+            <%= icon('fas', 'trash') %>Delete this review
+          <% end %>
         </div>
         <% end %>
       </div>
@@ -55,9 +73,9 @@
     <div class="col-lg-12 reviews__add">
       <h2>Add a review</h2>
       <%= simple_form_for [@cocktail, @review] do |f| %>
-        <%= f.input :content %>
         <%= f.input :stars, collection: [0, 1, 2, 3, 4, 5], include_blank: false %>
-        <%= f.submit "Add a review", class: "btn btn--primary" %>
+        <%= f.input :content %>
+        <%= f.submit "Add review", class: "btn btn--primary" %>
       <% end %>
     </div>
 

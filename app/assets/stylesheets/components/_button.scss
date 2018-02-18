@@ -6,6 +6,11 @@
   text-transform: uppercase;
   padding: 10px 15px;
   font-weight: 500;
+  border: none;
+
+  i {
+    margin-right: 5px;
+  }
 }
 
 .btn--primary {

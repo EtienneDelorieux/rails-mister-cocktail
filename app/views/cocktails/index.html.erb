@@ -4,7 +4,7 @@
 
   <div class="row cocktail__list">
     <% @cocktails.each do |cocktail| %>
-      <div class="col-md-3">
+      <div class="cocktail col-md-3">
         <%= render "cocktail", cocktail: cocktail %>
       </div>
     <% end %>

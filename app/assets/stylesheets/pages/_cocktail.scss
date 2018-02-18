@@ -2,12 +2,34 @@
   display: block;
   background-position: center center;
   background-size: cover;
-  padding: 250px 0;
+  padding: 150px 0;
   text-align: center;
   color: #fff;
+  position: relative;
 
   h1 {
-    margin: 0;
+    margin: 0 0 30px;
+    font-style: italic;
+  }
+}
+
+.cocktail__description {
+  font-size: 1.2rem;
+}
+
+.cocktail__actions {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+
+  .btn {
+    color: $dark;
+    background-color: rgba(255, 255, 255, 0.85);
+    margin-left: 15px;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 1);
+    }
   }
 }
 
@@ -15,6 +37,10 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+
+  .cocktail:nth-child(n + 5) {
+    margin-top: 30px;
+  }
 }
 
 .cocktail__ingredients {
@@ -27,6 +53,10 @@
 
 .ingredients__item {
   margin-bottom: 10px;
+
+  a {
+    color: $dark;
+  }
 }
 
 .reviews__list {
@@ -36,6 +66,11 @@
 
 .review {
   text-align: center;
+  position: relative;
+
+  &:nth-child(n + 5) {
+    margin-top: 30px;
+  }
 }
 
 .review__stars {
@@ -48,4 +83,32 @@
   .fa-star.star--empty {
     opacity: 0.25;
   }
+}
+
+.review__delete {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 500;
+
+  i {
+    margin-right: 5px;
+  }
+
+  &:hover {
+    color: $dark;
+  }
+}
+
+.review:hover .review__delete {
+  opacity: 1;
 }
