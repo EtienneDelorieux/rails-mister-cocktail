@@ -7,4 +7,15 @@ class Cocktail < ApplicationRecord
   validates :photo, presence: true
 
   mount_uploader :photo, PhotoUploader
+
+  include PgSearch
+
+  pg_search_scope :search,
+   against: [
+     [:name, 'A'],
+     [:description, 'B']
+   ],
+   using: {
+   tsearch: { prefix: true }
+   }
 end

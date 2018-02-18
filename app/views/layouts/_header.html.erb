@@ -1,5 +1,14 @@
 <header>
   <%= link_to "Cocktailab", root_path, class: "logo" %>
+
+  <%= form_tag cocktails_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a cocktail"
+    %>
+  <% end %>
+  
   <%= link_to(new_cocktail_path, id: "new-cocktail", class: "btn btn--primary") do %>
     <%= icon('fas', 'plus') %>New Mixture
   <% end %>
